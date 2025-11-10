@@ -1,0 +1,188 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+/* 기본 스타일 초기화 및 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gowun Dodum', sans-serif;
+    background-color: #fdfaf6; /* 부드러운 배경색 */
+    color: #333;
+    line-height: 1.8; /* 줄 간격 */
+    text-align: center;
+}
+
+/* 초대장 카드 레이아웃 */
+.invitation-card {
+    max-width: 600px; /* PC에서 너무 커지지 않게 */
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* AOS 애니메이션이 깔끔하게 보이도록 */
+}
+
+/* 헤더 섹션 */
+h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #5a4a42; /* 따뜻한 갈색톤 */
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #a08c84;
+    margin-top: 0;
+    letter-spacing: 1px;
+}
+
+.main-photo {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* 구분선 */
+.divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 40px 0;
+}
+
+/* 정보 섹션 */
+.info-section h2 {
+    font-size: 1.5rem;
+    color: #5a4a42;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 20%;
+}
+
+.info-item strong {
+    font-size: 1.1rem;
+    color: #333;
+    display: inline-block;
+    width: 100px; /* 레이블 정렬 */
+}
+
+.info-item .icon {
+    margin-right: 10px;
+}
+
+.info-item p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    color: #555;
+    display: inline-block;
+}
+
+/* 지도 버튼 */
+.map-button {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 20px;
+    background-color: #8d7b73;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.map-button:hover {
+    background-color: #5a4a42;
+    transform: translateY(-2px);
+}
+
+/* 갤러리 섹션 */
+.gallery-section h2 {
+    font-size: 1.5rem;
+    color: #5a4a42;
+    margin-bottom: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* 3개 컬럼으로, 최소 100px, 최대 1fr(균등) */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* 사진 사이 간격 */
+}
+
+.gallery-grid a {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 비율 맞춰 꽉 차게 */
+    transition: transform 0.4s ease;
+}
+
+.gallery-grid a:hover img {
+    transform: scale(1.1); /* 마우스 올리면 살짝 확대 */
+}
+
+/* 맺음말 */
+.footer-section p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.parents-name {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 반응형: 모바일 화면 (480px 이하) */
+@media (max-width: 480px) {
+    .invitation-card {
+        margin: 0;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .info-item {
+        padding-left: 0; /* 모바일에선 정렬 제거 */
+        text-align: center;
+    }
+
+    .info-item strong {
+        display: block; /* 세로로 배치 */
+        width: auto;
+        margin-bottom: 5px;
+    }
+
+    .info-item p {
+        display: block;
+    }
+
+    /* 갤러리 2열로 변경 */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
