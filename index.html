@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?a816f0c11f38ca46e5208fb612664c87"></script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
@@ -43,7 +44,30 @@
                 <p>엠마맨션<br>(경기 용인시 처인구 양지면 새실로75번길 2-8 EMMA Mansion)</p>
             </div>
 
-            <a href="httpsE://map.kakao.com/..." class="map-button" target="_blank">카카오맵으로 길찾기</a>
+            <div id="map" style="width:500px;height:400px;"></div>
+            <script>
+                var container = document.getElementById('map');
+                var options = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667),
+                    level: 3
+                };
+
+                var map = new kakao.maps.Map(container, options);
+            </script>
+
+            <div class="button-container">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=경기+용인시+처인구+양지면+새실로75번길+2-8+EMMA+Mansion"
+                   class="map-button google"
+                   target="_blank">
+                   🗺️ 구글맵으로 길찾기
+                </a>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?a816f0c11f38ca46e5208fb612664c87"></script>
+                <a href="https://map.kakao.com/link/route?q=경기+용인시+처인구+양지면+새실로75번길+2-8+EMMA+Mansion"
+                   class="map-button kakao"
+                   target="_blank">
+                   🗺️ 카카오맵으로 길찾기
+                </a>
+            </div>
 
             <div class="map-container" data-aos="zoom-in" data-aos-delay="200">
                 <iframe
