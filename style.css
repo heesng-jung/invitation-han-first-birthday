@@ -186,3 +186,21 @@ h1 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ... (기존 CSS 코드) ... */
+
+/* [추가] 지도 컨테이너 스타일 */
+.map-container {
+    margin-top: 30px; /* 위쪽 여백 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    overflow: hidden; /* 모서리 둥글게 적용 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    /* * iframe의 width/height 속성 대신
+     * CSS로 너비를 100%로 강제해서 반응형으로 만듭니다.
+     */
+    width: 100%;
+    vertical-align: middle; /* 하단 미세 여백 제거 */
+}
