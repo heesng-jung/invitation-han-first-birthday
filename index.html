@@ -22,7 +22,7 @@
         <div class="header-section" data-aos="fade-down" data-aos-duration="1000">
             <h1>정한의 돌잔치에 초대합니다</h1>
             <p class="subtitle">JEONGHAN'S 1ST BIRTHDAY PARTY</p>
-            <img src="images/main-photo.jpg" alt="정한이 메인 사진" class="main-photo">
+            <img src="images/han_00.jpg" alt="정한이 메인 사진" class="main-photo">
             <p class="intro-text">
                 사랑으로 자라온 정한이가<br>
                 어느덧 첫 번째 생일을 맞이했습니다.<br>
@@ -79,24 +79,17 @@
         <div class="gallery-section" data-aos="fade-up">
             <h2>정한이의 순간들</h2>
             <div class="gallery-grid">
-                <a href="images/gallery-1-large.jpg" data-lightbox="gallery" data-title="100일 사진">
-                    <img src="images/gallery-1-thumb.jpg" alt="갤러리 사진 1">
-                </a>
-                <a href="images/gallery-2-large.jpg" data-lightbox="gallery" data-title="첫 뒤집기!">
-                    <img src="images/gallery-2-thumb.jpg" alt="갤러리 사진 2">
-                </a>
-                <a href="images/gallery-3-large.jpg" data-lightbox="gallery" data-title="가족 나들이">
-                    <img src="images/gallery-3-thumb.jpg" alt="갤러리 사진 3">
-                </a>
-                <a href="images/han-happy-smile.jpg" data-lightbox="gallery" data-title="행복하게 웃는 한이">
-                    <img src="images/han-happy-smile.jpg" alt="행복하게 웃는 한이">
-                </a>
-                <a href="images/gallery-5-large.jpg" data-lightbox="gallery" data-title="첫 수영">
-                    <img src="images/gallery-5-thumb.jpg" alt="갤러리 사진 5">
-                </a>
-                <a href="images/gallery-6-large.jpg" data-lightbox="gallery" data-title="자는 모습">
-                    <img src="images/gallery-6-thumb.jpg" alt="갤러리 사진 6">
-                </a>
+                <script>
+                    function formatNumber(num) {
+                      // Convert the number to a string first
+                      return String(num).padStart(2, '0');
+                    }
+                    for (let i = 1; i <= 21; i++) {
+                        document.writeln('                <a href="images/han_',formatNumber(i),'.jpg" data-lightbox="gallery" data-title="정한">')
+                        document.writeln('                    <img src="images/han_',formatNumber(i),'.jpg" alt="사진">')
+                        document.writeln('                </a>')
+                    }
+                </script>
             </div>
         </div>
 
