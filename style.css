@@ -277,6 +277,12 @@ h1 {
     transform: rotate(20deg) translateX(320%);
 }
 
+/* 벚꽃 토글 버튼 활성화 상태 */
+#sakuraBtn.off {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
 /* BGM Sound Wave Animation */
 .sound-wave {
     display: flex;

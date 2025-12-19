@@ -116,8 +116,13 @@
     </div>
 
     <!-- BGM 버튼 및 오디오 -->
-    <button id="bgmBtn" class="fixed bottom-4 right-4 w-10 h-10 flex items-center justify-center rounded-full shadow bg-white/80 z-50"></button>
+    <div class="fixed bottom-4 left-4 flex flex-col gap-2 z-50">
+        <button id="sakuraBtn" class="w-10 h-10 flex items-center justify-center rounded-full shadow bg-white/80" title="벚꽃 효과 끄기/켜기">🌸</button>
+        <button id="bgmBtn" class="w-10 h-10 flex items-center justify-center rounded-full shadow bg-white/80"></button>
+    </div>
     <audio id="bgm" preload="auto" src="audio/bgm.mp3" loop></audio>
+
+    <canvas id="sakuraCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-[1]"></canvas>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
