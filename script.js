@@ -73,19 +73,42 @@ lightbox.option({
   const audio = document.getElementById('bgm');
   const btn = document.getElementById('bgmBtn');
   if (!audio || !btn) return;
-  let playing = false;
+
+  const ICONS = {
+    PLAYING: '<div class="sound-wave"><span></span><span></span><span></span><span></span></div>',
+    PAUSED: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" /></svg>'
+  };
+
+  const updateIcon = () => {
+    btn.innerHTML = audio.paused ? ICONS.PAUSED : ICONS.PLAYING;
+  };
+
+  const playBgm = async () => {
+    try {
+      await audio.play();
+      updateIcon();
+    } catch (e) {
+      console.log('자동 재생이 제한되었습니다. 사용자 상호작용이 필요합니다.');
+      updateIcon();
+    }
+  };
+
   btn.addEventListener('click', async () => {
     try {
-      if (!playing) {
+      if (audio.paused) {
         await audio.play();
-        btn.textContent = '일시정지';
       } else {
         audio.pause();
-        btn.textContent = 'BGM ♪';
       }
-      playing = !playing;
+      updateIcon();
     } catch (e) {
-      // 자동재생 제한 등 오류는 무시
+      console.error('BGM 재생 오류:', e);
     }
   });
+
+  // 초기 상태 설정
+  updateIcon();
+
+  // 페이지 첫 상호작용 시 재생 시도 (브라우저 정책 대응)
+  document.addEventListener('click', playBgm, { once: true });
 })();
