@@ -14,7 +14,7 @@ body {
 }
 
 /* 케이크 애니메이션 및 랜딩 스타일 */
-.cake-video-container {
+.landing-content {
     animation: floating 3s ease-in-out infinite;
 }
 
