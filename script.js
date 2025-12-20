@@ -14,8 +14,36 @@ function initAOS() {
   const landing = document.getElementById('landing');
   const card = document.querySelector('.invitation-card');
   const cakeVideo = document.getElementById('cakeVideo');
+  let fireworksInterval;
 
   if (!landing || !card) return;
+
+  // 폭죽 효과 함수
+  const launchFireworks = () => {
+    const duration = 15 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 150 };
+
+    const randomInRange = (min, max) => Math.random() * (max - min) + min;
+
+    fireworksInterval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+
+      confetti({
+        ...defaults,
+        particleCount: 40,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      });
+      confetti({
+        ...defaults,
+        particleCount: 40,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      });
+    }, 250);
+  };
+
+  // 페이지 로드 시 폭죽 시작
+  launchFireworks();
 
   // 비디오 재생 시도 함수
   const attemptPlay = () => {
@@ -40,6 +68,7 @@ function initAOS() {
   document.addEventListener('mousedown', playOnFirstTouch);
 
   landing.addEventListener('click', () => {
+    clearInterval(fireworksInterval); // 폭죽 중단
     landing.style.opacity = '0';
     setTimeout(() => {
       landing.style.display = 'none';
