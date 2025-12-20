@@ -1,11 +1,27 @@
-// 모션 최소화 설정 감지 후 AOS 초기화
-(function initAOS() {
+// AOS 초기화 (랜딩 페이지 이후로 지연)
+function initAOS() {
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   AOS.init({
     once: true,
     duration: prefersReduced ? 0 : 800,
     easing: 'ease-in-out',
     disable: prefersReduced
+  });
+}
+
+// 랜딩 페이지 처리
+(function initLanding() {
+  const landing = document.getElementById('landing');
+  const card = document.querySelector('.invitation-card');
+  if (!landing || !card) return;
+
+  landing.addEventListener('click', () => {
+    landing.style.opacity = '0';
+    setTimeout(() => {
+      landing.style.display = 'none';
+      card.classList.add('show');
+      initAOS(); // AOS 애니메이션 시작
+    }, 1000);
   });
 })();
 
