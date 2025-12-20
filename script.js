@@ -13,17 +13,31 @@ function initAOS() {
 (function initLanding() {
   const landing = document.getElementById('landing');
   const card = document.querySelector('.invitation-card');
-  const cakeVideo = landing?.querySelector('video');
+  const cakeVideo = document.getElementById('cakeVideo');
 
   if (!landing || !card) return;
 
-  // 비디오 자동 재생 보완
-  if (cakeVideo) {
-    cakeVideo.play().catch(() => {
-      // 자동 재생이 막힌 경우 사용자 클릭 시 재생 시도 (이미 landing에 클릭 이벤트가 있음)
-      console.log("Video autoplay blocked, waiting for interaction.");
-    });
-  }
+  // 비디오 재생 시도 함수
+  const attemptPlay = () => {
+    if (cakeVideo) {
+      cakeVideo.play().catch(error => {
+        console.error("Video play failed:", error);
+      });
+    }
+  };
+
+  // 페이지 로드 시 재생 시도
+  attemptPlay();
+
+  // 저전력 모드나 정책으로 인해 자동재생이 막힌 경우를 위해 
+  // 화면 전체(landing)에 첫 터치 시 재생되도록 보완
+  const playOnFirstTouch = () => {
+    attemptPlay();
+    document.removeEventListener('touchstart', playOnFirstTouch);
+    document.removeEventListener('mousedown', playOnFirstTouch);
+  };
+  document.addEventListener('touchstart', playOnFirstTouch);
+  document.addEventListener('mousedown', playOnFirstTouch);
 
   landing.addEventListener('click', () => {
     landing.style.opacity = '0';
