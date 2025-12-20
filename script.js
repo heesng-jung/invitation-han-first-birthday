@@ -13,7 +13,17 @@ function initAOS() {
 (function initLanding() {
   const landing = document.getElementById('landing');
   const card = document.querySelector('.invitation-card');
+  const cakeVideo = landing?.querySelector('video');
+
   if (!landing || !card) return;
+
+  // 비디오 자동 재생 보완
+  if (cakeVideo) {
+    cakeVideo.play().catch(() => {
+      // 자동 재생이 막힌 경우 사용자 클릭 시 재생 시도 (이미 landing에 클릭 이벤트가 있음)
+      console.log("Video autoplay blocked, waiting for interaction.");
+    });
+  }
 
   landing.addEventListener('click', () => {
     landing.style.opacity = '0';

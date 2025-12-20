@@ -14,7 +14,7 @@ body {
 }
 
 /* 케이크 애니메이션 및 랜딩 스타일 */
-.cake-image-container {
+.cake-video-container {
     animation: floating 3s ease-in-out infinite;
 }
 
@@ -22,24 +22,6 @@ body {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
-}
-
-.candle-glow {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle, rgba(255,159,67,0.4) 0%, rgba(255,159,67,0) 70%);
-    border-radius: 50%;
-    filter: blur(10px);
-    animation: pulse 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes pulse {
-    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
 }
 
 .invitation-card {
