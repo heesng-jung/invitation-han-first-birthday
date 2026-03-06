@@ -85,6 +85,50 @@ lightbox.option({
   disableScrolling: true
 });
 
+// Lightbox2 터치 드래그 기능 추가
+(function initLightboxTouch() {
+  let startX = 0;
+  let endX = 0;
+  const threshold = 50;
+
+  // lightbox 레이어는 동적으로 생성될 수 있으므로 document에 위임하거나 
+  // 생성 시점을 확인해야 함. 여기서는 document에 이벤트 위임 방식을 사용.
+  
+  document.addEventListener('touchstart', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.style.display !== 'none') {
+      startX = e.touches[0].clientX;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.style.display !== 'none') {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    }
+  }, { passive: true });
+
+  function handleSwipe() {
+    const diff = startX - endX;
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        // 왼쪽으로 스와이프 -> 다음 사진
+        const nextBtn = document.querySelector('.lb-next');
+        if (nextBtn && nextBtn.style.display !== 'none') {
+          nextBtn.click();
+        }
+      } else {
+        // 오른쪽으로 스와이프 -> 이전 사진
+        const prevBtn = document.querySelector('.lb-prev');
+        if (prevBtn && prevBtn.style.display !== 'none') {
+          prevBtn.click();
+        }
+      }
+    }
+  }
+})();
+
 // Swiper 초기화
 (function initSwiper() {
   new Swiper('.gallery-swiper', {
