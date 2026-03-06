@@ -152,7 +152,22 @@ h1 {
 
 .gallery-swiper {
     width: 100%;
-    padding-bottom: 30px;
+    padding: 20px 0 60px; /* 위쪽 여백 추가 및 아래쪽 충분한 공간 확보 */
+}
+
+/* Swiper 스크롤바 커스텀 */
+.gallery-swiper .swiper-scrollbar {
+    background: rgba(90, 74, 66, 0.1); /* 연한 갈색 배경 */
+    height: 6px; /* 두께 약간 증가 */
+    bottom: 25px; /* 위치를 좀 더 위로 조정 */
+    width: 60%; /* 너비를 줄여서 더 세련되게 */
+    left: 20%; /* 가운데 정렬 유지 */
+    border-radius: 10px;
+}
+
+.gallery-swiper .swiper-scrollbar-drag {
+    background: #f4b6c8; /* 파스텔 핑크 */
+    border-radius: 10px;
 }
 
 .gallery-swiper .swiper-slide {

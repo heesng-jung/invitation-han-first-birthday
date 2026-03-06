@@ -100,6 +100,11 @@ lightbox.option({
       el: '.swiper-pagination',
       clickable: true,
     },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+      hide: false,
+    },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
