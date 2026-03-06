@@ -131,7 +131,7 @@ lightbox.option({
 
 // Swiper 초기화
 (function initSwiper() {
-  new Swiper('.gallery-swiper', {
+  const swiper = new Swiper('.gallery-swiper', {
     slidesPerView: 'auto',
     spaceBetween: 15,
     centeredSlides: true,
@@ -154,6 +154,12 @@ lightbox.option({
       prevEl: '.swiper-button-prev',
     },
   });
+
+  // 루프 모드에서 첫 번째 슬라이드(01.jpg)로 확실히 이동
+  // Swiper 11에서는 slideToLoop를 사용하는 것이 정확함
+  setTimeout(() => {
+    swiper.slideToLoop(0, 0);
+  }, 100);
 })();
 
 // 카운트다운 (D-day)
