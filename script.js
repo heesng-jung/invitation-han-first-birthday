@@ -81,8 +81,31 @@ function initAOS() {
 // Lightbox2 옵션
 lightbox.option({
   resizeDuration: 200,
-  wrapAround: true
+  wrapAround: true,
+  disableScrolling: true
 });
+
+// Swiper 초기화
+(function initSwiper() {
+  new Swiper('.gallery-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 15,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+})();
 
 // 카운트다운 (D-day)
 (function initCountdown() {
