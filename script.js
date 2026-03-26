@@ -185,7 +185,7 @@ lightbox.option({
 (function initCopyAddress() {
   const btn = document.getElementById('copyAddr');
   if (!btn) return;
-  const addr = '경기 용인시 처인구 양지면 새실로75번길 2-8 EMMA Mansion';
+  const addr = '경기 용인시 처인구 양지면 새실로75번길 2-8';
   btn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(addr);
